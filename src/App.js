@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import Task from './components/task.js'
 import Tasks from './components/Tasks.js'
 import { useState } from 'react';
 import AddTask from './components/AddTask.js';

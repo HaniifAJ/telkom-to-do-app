@@ -1,0 +1,17 @@
+.task-card {
+    display: flex;
+    flex-direction: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: cyan;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px;
+    padding: 15px;
+    color: blue;
+    margin: 10px
+}
+
+.button-wrap {
+    display: flex;
+    flex-flow: column nowrap;
+}

@@ -1,7 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import Task from './components/task.js'
+import Tasks from './components/Tasks.js'
+import { useState } from 'react';
+import AddTask from './components/AddTask.js';
 
 function App() {
+
+  const [tasks, setTasks] = useState([
+    {
+      title: 'Telkom Homework',
+      done: false,
+    },
+    {
+      title: 'Progjar Homework',
+      done: false,
+    }
+  ])
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +34,12 @@ function App() {
         >
           Learn React
         </a>
+        <AddTask Tasks={tasks}
+          setTasks={setTasks}
+        />
+        <Tasks Tasks={tasks}
+          setTasks={setTasks}
+        />
       </header>
     </div>
   );

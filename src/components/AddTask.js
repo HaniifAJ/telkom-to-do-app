@@ -30,7 +30,7 @@ export default function AddTask({ Tasks, setTasks, highestId, setHighestId }) {
 
     return (
         <div className="form-wrapper" style={{ width: "100%", margin: "10px" }}>
-            <h1>To Do List</h1>
+            <h1>To-do List</h1>
             <form>
                 <div className="form-control">
                     <input type="text"

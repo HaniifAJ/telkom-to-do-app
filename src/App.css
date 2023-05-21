@@ -32,7 +32,37 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+input[type=text] {
+  box-sizing: border-box;
+  padding: 10px;
+  flex-grow: 2;
+  border-radius: 5px;
+}
+
+.form-control {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+input[type=button],
+button[type=button] {
+  flex-grow: 1;
+  background-color: #189ee1;
+  border: none;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 0 4px black;
 }

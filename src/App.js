@@ -1,44 +1,52 @@
 import logo from './logo.svg';
 import './App.css';
 import Tasks from './components/Tasks.js'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AddTask from './components/AddTask.js';
 
 function App() {
 
-  const [tasks, setTasks] = useState([
-    {
-      title: 'Telkom Homework',
-      done: false,
-    },
-    {
-      title: 'Progjar Homework',
-      done: false,
-    }
-  ])
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem('tasks')) || []
+  )
 
+  // let buffer = JSON.parse(localStorage.getItem('tasks'));
+  // if (buffer !== null) {
+  //   setTasks(buffer);
+  // }
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
+
+  function checkHighestId() {
+    let local_highest_id = 0
+    for (let task of tasks) {
+      local_highest_id = Math.max(local_highest_id, task.id)
+    }
+    return local_highest_id
+  }
+
+  const [highestId, setHighestId] = useState(checkHighestId())
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <div>
+          <AddTask Tasks={tasks}
+            setTasks={setTasks}
+            highestId={highestId}
+            setHighestId={setHighestId}
+          />
+          <Tasks Tasks={tasks}
+            setTasks={setTasks}
+          />
+        </div>
+        <br />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Haniif Ahmad Jauhari | 5025201224 | Institut Teknologi Sepuluh Nopemeber
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <AddTask Tasks={tasks}
-          setTasks={setTasks}
-        />
-        <Tasks Tasks={tasks}
-          setTasks={setTasks}
-        />
       </header>
     </div>
   );
